@@ -16,11 +16,11 @@ div
     background-color:#fff;
     width: 100%;
 }
-input[type="button"]:hover{
+input[type="button"],input[type="submit"]:hover{
 background-color: #e10d3d; 
 }
 
-input[type="button"]{
+input[type="button"],input[type="submit"]{
     background-color: #f32e5b;
     border: 1px solid #e10d3d;
     color: white;

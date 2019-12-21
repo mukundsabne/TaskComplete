@@ -1,5 +1,6 @@
 import { ItemsService,Item } from './items.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
+  
   items:Item[];
   name='';
   validname:boolean = true;
@@ -22,9 +23,10 @@ export class AppComponent implements OnInit {
     this.filteringPacking(this.items);
   }
 
-  addItem(){
-    this.validname = this.name === '' ? false : true;
-    if(this.validname){
+  
+  addItem(f:FormGroup){
+    
+
       let lastItemId = null;
       if(this.track){
         lastItemId = this.items[this.items.length - 1].id;
@@ -34,12 +36,12 @@ export class AppComponent implements OnInit {
         lastItemId = this.items[0].id;
       }
       
-      let item:Item = {id:lastItemId+1,name:this.name,status:false};
+      let item:Item = {id:lastItemId+1,name:f.value.name,status:false};
       this.items = this.itemService.addItem(item);
       this.name = '';
       this.filteringPacking(this.items);
-    }
-    console.log(this.items);
+    f.reset();
+    
   }
 
   changeStatus(id:Number){
@@ -72,5 +74,7 @@ export class AppComponent implements OnInit {
     this.unpackedItems = this.items.filter((item)=> item.status == false );
  
   }
+
+
  
 }

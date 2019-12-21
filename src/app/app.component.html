@@ -5,9 +5,11 @@
     <div class="col-md-4 offset-md-4 col-xs-12">
 
       <div>
-        <input type="text" name="" id="addfield" [(ngModel)] = "name" required>
-        <input type="button" value="Submit" (click) = "addItem();">
-        <p style="color: red;" *ngIf="!validname"> Please Enter Valid Item Name. </p>
+        <form (ngSubmit)="addItem(f)" #f="ngForm">
+        <input type="text" name="name" id="addfield" ngModel required>
+        <input type="submit" value="Submit" [disabled]="f.invalid">
+        <p style="color: red;" *ngIf="!f.dirty && f.touched"> Please Enter Valid Item Name. </p>
+      </form>
       </div>
       <div>
         <h5>Unpacked Items ({{unpackedItems.length}})</h5>
