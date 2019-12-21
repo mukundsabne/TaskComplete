@@ -1,0 +1,52 @@
+div
+{
+    width: 100%;
+    text-align: left;
+    font-size: 12px;
+}
+
+#addfield,.search{
+    padding: 0.5em;
+    border: 1px solid #f32e5b;
+    background-color: #fbbfcd;
+    width: 80%;
+}
+
+.search{
+    background-color:#fff;
+    width: 100%;
+}
+input[type="button"]:hover{
+background-color: #e10d3d; 
+}
+
+input[type="button"]{
+    background-color: #f32e5b;
+    border: 1px solid #e10d3d;
+    color: white;
+    padding: 0.5em;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+label{
+    font-size: 12px;
+}
+
+.Item-remove{
+    border: none;
+    background: none;
+    color: #e10d3d;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+article{
+    padding: 2px;
+}
+
+h5{
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 10px;
+}
